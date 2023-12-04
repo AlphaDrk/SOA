@@ -1,0 +1,21 @@
+<!-- src/app/modifer-facture/modifer-facture.component.html -->
+
+<div class="container mt-4">
+    <h2>Modifier Facture</h2>
+    <form (ngSubmit)="modifierFacture()" #factureForm="ngForm">
+      <!-- Similar form fields as the add-facture.component.html -->
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" name="date" [(ngModel)]="facture.date" required>
+      </div>
+      <div class="form-group">
+        <label for="client">Client:</label>
+        <input type="text" class="form-control" id="client" name="client" [(ngModel)]="facture.client" required>
+      </div>
+      <div class="form-group">
+        <label for="montant">Montant:</label>
+        <input type="text" class="form-control" id="montant" name="montant" [(ngModel)]="facture.montant" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!factureForm.form.valid">Modifier</button>
+    </form>
+  </div>

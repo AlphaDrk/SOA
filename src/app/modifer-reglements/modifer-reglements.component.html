@@ -1,0 +1,34 @@
+<!-- modifier-reglement.component.html -->
+<div class="container mt-4">
+  <h2>Modify Payment</h2>
+
+  <form (ngSubmit)="updateReglement()" class="form-inline">
+    <!-- Add form fields for updating payment details -->
+    <div class="form-group">
+      <label for="dateR">Date:</label>
+      <input type="date" [(ngModel)]="reglement.dateR" name="dateR" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="montant">Amount:</label>
+      <input type="number" [(ngModel)]="reglement.montant" name="montant" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type:</label>
+      <select [(ngModel)]="reglement.type" name="type" class="form-control" required>
+          <option value="ESPECE">Espece</option>
+          <option value="CHEQUE">Cheque</option>
+          <option value="TRAITE">Traite</option>
+      </select>
+    </div>
+
+    <!-- Conditionally show the field for cheque or traite number -->
+    <div *ngIf="reglement.type === 'CHEQUE' || reglement.type === 'TRAITE'" class="form-group">
+      <label for="chequeTraiteNumber">Numero de Cheque/Traite:</label>
+      <input type="text" [(ngModel)]="reglement.chequeTraiteNumber" name="chequeTraiteNumber" class="form-control" pattern="[0-9]{14}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Payment</button>
+  </form>
+</div>

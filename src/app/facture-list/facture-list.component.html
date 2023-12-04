@@ -1,0 +1,34 @@
+<!-- ... other imports and component decorator ... -->
+
+<div class="container mt-4">
+  <button class="btn btn-primary mb-2" (click)="navigateToAddFacture()">Ajouter Facture</button>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Facture ID</th>
+        <th>Date</th>
+        <th>Client</th>
+        <th>Montant</th>
+        <th>Montant Restant</th>
+        <th>Montant Payer</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let facture of factures" [ngClass]="getRowColorClass(facture)">
+        <td>{{ facture.idF }}</td>
+        <td>{{ facture.date }}</td>
+        <td>{{ facture.client }}</td>
+        <td>{{ facture.montant }}</td>
+        <td>{{ facture.montantRestantAPayer }}</td>
+        <td>{{ facture.montantPayer }}</td>
+        <td style="background-color: #ffff;"> 
+          <button class="btn btn-outline-success" (click)="modifierFacture(facture.idF)">Modifier</button>
+          <button class="btn btn-outline-danger" (click)="deleteFacture(facture.idF)">Supprimer</button>
+          <button class="btn btn-outline-info" (click)="voirReglements(facture.idF)">Voir Règlements</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

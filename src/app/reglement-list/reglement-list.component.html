@@ -1,0 +1,36 @@
+<!-- reglement-list.component.html -->
+<div class="container mt-4">
+  <h2>Payments for Invoice {{ factureId }}</h2>
+
+  <button class="btn btn-success mb-2" (click)="navigateToAddReglement()">
+    Add Payment
+  </button>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Payment ID</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Numero de Cheque or Traite</th> <!-- Add this line -->
+        <th>Action</th>
+        <!-- Add other payment-related fields as needed -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reglement of reglements">
+        <td>{{ reglement.idR }}</td>
+        <td>{{ reglement.dateR | date }}</td>
+        <td>{{ reglement.montant }}</td>
+        <td>{{ reglement.type }}</td>
+        <td>{{ reglement.chequeTraiteNumber }}</td> <!-- Add this line -->
+        <td>
+          <button class="btn btn-outline-success" (click)="modifierReglement(reglement.idR)">Modifier</button>
+          <button class="btn btn-outline-danger" (click)="supprimerReglement(reglement.idR)">Supprimer</button>
+        </td>
+        <!-- Add other payment-related fields as needed -->
+      </tr>
+    </tbody>
+  </table>
+</div>

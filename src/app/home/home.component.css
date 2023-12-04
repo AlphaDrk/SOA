@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+    background-size: cover;
+  }
+  
+  .container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .container h1 {
+    color: #fff; /* Set the color of the text to be visible against the background */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background to make the text more readable */
+  }
+  
